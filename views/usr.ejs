@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<% include par/head%>
+<% include par/nav%>
+<html>
+<body>
+<!-- menu -->
+
+<!-- menu -->
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+<% include shop/cat %>
+</div>
+
+<div class="col-sm-10">
+<br>
+
+<% if(par=="sign") { %>
+
+<% include usr/sign %>
+<% } else if(par=="in") { %>
+<% include usr/in %>
+<% } %>
+
+</div><!-- /col12-->
+</div><!-- /row-->
+
+
+</div><!-- /container-fluid-->
+
+<div class="foot"><% include par/foot %></div>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+
+<% if(mer){ %>
+
+<nav class="columns">
+<% for(var i=0;i<3;i++) { %>
+<div class="column ">
+    <form action="/cart-item<%= mer[i].sku %>">
+        <input type="hidden" name="sku" value="<%= mer[i].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[i].sku %>.png">
+</form>
+
+</div>
+<% } %>
+</nav>
+
+<nav class="columns">
+<% for(var i=3;i<6;i++) { %>
+<div class="column ">
+    <form action="/cart-item<%= mer[i].sku %>">
+        <input type="hidden" name="sku" value="<%= mer[i].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[i].sku %>.png">
+</form>
+
+</div>
+<% } %>
+</nav>
+
+<% } else { %> no mer <% }  %>
+

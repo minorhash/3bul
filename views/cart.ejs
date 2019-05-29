@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<% include par/head%>
+<% include par/nav%>
+<html>
+<body>
+
+<!-- menu -->
+
+<div class="section">
+<div class="columns">
+<div class="column is-one-quarter">
+<% include shop/left%>
+</div>
+
+<div class="column">
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+<ul>
+    <li><a href="/">top</a></li>
+    <li class="is-active"><a href="#" aria-current="page">item</a></li>
+</ul>
+</nav>
+<% if(par=="til") { %>
+<% include shop/til %>
+<% } else if(par=="dra") { %>
+<% include shop/dra %>
+<% } else if(par=="art") { %>
+<% include shop/art %>
+
+<% } else { %>
+<% include shop/item %>
+<% } %>
+
+</div><!-- /col-->
+</div><!-- /row-->
+
+<div class="foot"><% include par/foot %></div>
+
+</section><!-- /container-fluid-->
+
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+$footer-background-color:black;
+$footer-padding:1rem 1rem 1rem 1rem;
+
+$ali:aliceblue;
+$ali-invert:findColorInvert($ali);
+
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+$addColors: (
+"ali": ($ali, $ali-invert)
+);
+
+$colors: map-merge($colors, $addColors);
+@import "../../node_modules/bulma/bulma.sass";
