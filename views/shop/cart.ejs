@@ -33,16 +33,20 @@
   </div>
   <div class="media-content"> 
 <form action="/cart" method="get">
-    <input type="hidden" name="clr" value="yes">
+<input type="hidden" name="clr" value="yes">
 <button class="button" type="submit">clear</button>
 </form>
 </div>
 
   </article>
   <% } %>
-<form action="/paypal">
-<button class="button" type="submit">submit</button>
+
+<% } else {%> no sku
+<form action="/cart" method="get">
+<input type="hidden" name="clr" value="yes">
+<button class="button" type="submit">clear</button>
 </form>
 
 
-<% } else {%> no sku <% } %>
+
+<% } %>
