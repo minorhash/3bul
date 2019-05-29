@@ -78,7 +78,7 @@ import paidy payment template json
 ```
 
 ### ignored files
-- routes/shop/son
+- routes/son
 #### credential json files
 aid.json
 ```js

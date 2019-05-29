@@ -9,27 +9,18 @@
 <div class="section">
 <div class="columns">
 <div class="column is-one-quarter">
-<% include shop/left%>
+<% include shop/cat%>
 </div>
 
 <div class="column">
 <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
 <ul>
     <li><a href="/">top</a></li>
-    <li class="is-active"><a href="#" aria-current="page">item</a></li>
+    <li class="is-active"><a href="cart-<%= par %>" aria-current="page">cart <%= par %></a></li>
 </ul>
 </nav>
-<% if(par=="til") { %>
-<% include shop/til %>
-<% } else if(par=="dra") { %>
-<% include shop/dra %>
-<% } else if(par=="art") { %>
-<% include shop/art %>
 
-<% } else { %>
-<% include shop/item %>
-<% } %>
-
+<% include shop/cart %>
 </div><!-- /col-->
 </div><!-- /row-->
 

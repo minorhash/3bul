@@ -4,7 +4,12 @@
 <nav class="columns">
 <% for(var k=0;k<mer.length;k++ ) { %>
 <div class="column is-one-quarter has-text-centered has-background-ali" >
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
+
 </div>
 <div class="column">
     <%=shop.tit %>:<%= mer[k].name %><br>
@@ -20,14 +25,21 @@
 <nav class="columns">
 <% for(var k=0;k<3;k++ ) { %>
 <div class="column">
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
 </div>
 <% } %><!-- for-->
 </nav>
 <nav class="columns">
 <% for(var k=3;k<6;k++ ) { %>
 <div class="column">
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
+
 </div>
 <% } %>
 </nav>
@@ -36,21 +48,32 @@
 <nav class="columns">
 <% for(var k=0;k<3;k++ ) { %>
 <div class="column">
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
 </div>
 <% } %><!-- for-->
 </nav>
 <nav class="columns">
 <% for(var k=3;k<6;k++ ) { %>
 <div class="column">
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
+
 </div>
 <% } %>
 </nav>
 <nav class="columns">
 <% for(var k=6;k<mer.length;k++ ) { %>
 <div class="column">
-<img src="img/cd/png/<%= mer[k].sku %>.png">
+<form action="/item<%= mer[k].sku %>">
+<input type="hidden" name="sku" value="<%= mer[k].sku %>" >
+<input type="image" src="img/cd/png/<%= mer[k].sku %>.png">
+</form>
+
 </div>
 <% } %>
 </nav>
