@@ -1,10 +1,10 @@
 # 1bul - locart with bulma
 ## low-carb, fat free, and no nonsense shopping cart for express
-### express, sqlite, bootstrap4
+### express, sqlite, bulma
 
 - no database server required(file based db)
 - ultra lite and fast sqlite3 db
-- simple boostrap3 ui
+- simple bulma ui
 
 ### required modules
 - better-sqlite3
