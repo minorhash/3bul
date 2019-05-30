@@ -1,3 +1,7 @@
-br=$(git rev-parse --abbrev-ref HEAD)
-echo $br
+if [ -z $1 ];then
+    echo "$0 br"
+else
 
+    git checkout $1
+
+fi
