@@ -1,19 +1,7 @@
-<form method="post" action="/cart">
-<input class="input" type="number" name="reset" value="<%= sar[i].uni %>">
+<form method="get" action="/cart">
+<input class="input" type="number" name="rset" value="<%= sar[i].uni %>">
 <input type="text" name="rsku" value="<%= sar[i].sku%>">
 <button class="button" type="submit">get</button>
 </form>
 
-<button class="button" type="submit" onclick="putUni()">put</button>
 
-<script>
-function putUni(){
-var loc= "http://localhost:3000";
-var xhr = new XMLHttpRequest();
-var str="rsku="+<%= sar[i].sku%>
-<!-- var str="sku=355" -->
-xhr.open("put", loc+"/uni?"+str, true);
-xhr.send()
-}
-
-</script>

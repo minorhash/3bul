@@ -1,17 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var db=require("cardb")
-var par,sku,skumer,pri,uni
-var sess,ite,sob,sar=[],clr
+var par,sku,skumer,pri,uni,rsku,rset
+var sess,ite,sob,sar=[],clr,skua,ind
 
 var getPar=function(req, res, next) {
     par=req.params.id
     next()}
 
 var getSku=function(req, res, next) {
+rsku=req.query.rsku
+rset=req.query.rset
+
 sess=req.session
+    skua=[]
 if(sess){
 sar=sess.sar
+    for (var i=0;i<sar.length;i++){
+skua.push(sar[i].sku)
+    }
+ind=    skua.indexOf(rsku)
+    if(ind>-1){
+    sar[ind].sku=rsku
+    sar[ind].uni=rset
+    }
+
 }else{
 console.log("=== no sar")
 }
@@ -28,41 +41,27 @@ uni=req.body.uni
 skumer=db.skuMer(sku)
 
 sess=req.session
-//sar=[]
-if(req.body){
-    ite={sku:"",pri:"",uni:"",name:""}
+ite={sku:"",pri:"",uni:"",name:""}
+if(sku){
     ite.name=skumer.name
     ite.sku=sku
-    ite.pri=skumer.pri
-
-    if(!req.body.reset){
     ite.uni=uni
-    }
+    ite.pri=skumer.pri
+    console.log(ite)
+}else{console.log("no sku")}
+
 
 if(sess.sar){
 sar=sess.sar
 sar.push(ite)
-sess.sar=sar
+res.redirect("cart")
+
 }else{
 console.log("=== no sar")
 sar=sess.sar=[]
 }
-res.redirect("cart")
-}else{
-req.session=null
-sar=null
-console.log("no sku")}
+
 next()}//pos sku
-
-var upUni=function(req, res, next) {
-    if(sess){
-    sar=sess.sar
-if(req.body.reset){
-ite.uni=req.body.reset
-}else{console.log("no sku")}
-}else{console.log("no sess")}
-
-next()}//up uni
 
 var clrSes=function(req, res, next) {
 if(req.query){
@@ -77,8 +76,9 @@ next()}//clr ses
 var chk=function(req, res, next) {
     console.log("== cart")
     console.log(sku)
-    console.log(clr)
-    console.log(sar)
+    console.log(rsku)
+    console.log(rset)
+    console.log(ind)
     next()}
 
 var cb=function(req, res ) {
