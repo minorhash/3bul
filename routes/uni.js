@@ -6,7 +6,6 @@ var preu,aftu
 var hea
 
 var getSes=function(req, res, next) {
-// req.query=""
 sess=req.session
 if(sess){
 sar=sess.sar
@@ -40,5 +39,5 @@ console.log(req.query)
 // console.log(skua)
 }
 
-router.get('/cart',[getSes,chk] );
+router.put('/uni',[chk] );
 module.exports = router;

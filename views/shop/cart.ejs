@@ -1,22 +1,52 @@
 <% if(sar) { %>
+
 <% for(var i=0;i<sar.length;i++) { %>
-<article class="media ">
+<article class="media">
 
 <figure class="media-left">
-<p class="image is-10x10">
+
+<p class="image is-100x100">
 <img src="img/cd/png/<%= sar[i].sku %>.png">
 </p>
 </figure>
 
-<div class="media-content has-background-ali" style="padding:10px">
-<strong><%=shop.tit %>:<%= sar[i].name %></strong> <br>
-<%=shop.sku%>:tms-<%= sar[i].sku%>
+<div class="media-content">
+<div class="content">
+<strong><%=shop.tit %>:<%= sar[i].name %></strong> 
 <br>
-<% include ./lev %>
-<% include ./uni%>
-
 </div>
 
-</article>
+<nav class="level is-mobile">
+<div class="level-left">
+<a class="level-item">
+<span class="icon is-small"><i class="fa fa-reply"></i></span>
+</a>
+<a class="level-item">
+<span class="icon is-small"><i class="fa fa-retweet"></i></span>
+</a>
+<a class="level-item">
+<span class="icon is-small"><i class="fa fa-heart"></i></span>
+</a>
+</div>
+</nav>
+
+  </div>
+  <div class="media-content"> 
+<form action="/cart" method="get">
+<input type="hidden" name="clr" value="yes">
+<button class="button" type="submit">clear</button>
+</form>
+</div>
+
+  </article>
+  <% } %>
+
+<% } else {%> no sku
+<form action="/cart" method="get">
+<input type="hidden" name="clr" value="yes">
+<button class="button" type="submit">clear</button>
+</form>
+
+
+
 <% } %>
-<% } else {%> no sku <% } %>
