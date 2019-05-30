@@ -4,23 +4,21 @@
 <html>
 <body>
 
-<!-- menu -->
-
-<div class="section">
+<section class="has-background-white" style="padding:20px">
 <div class="columns">
+
 <div class="column is-one-quarter">
+
+<% include shop/bre%>
 <% include shop/cat%>
 </div>
 
-<div class="column">
-<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
-<ul>
-    <li><a href="/">top</a></li>
-    <li class="is-active"><a href="cart-<%= par %>" aria-current="page">cart <%= par %></a></li>
-</ul>
-</nav>
-
+<div class="column is-two-quarter">
 <% include shop/cart %>
+</div><!-- /col-->
+
+<div class="column is-one-quarter">
+<% include shop/clr%>
 </div><!-- /col-->
 </div><!-- /row-->
 
