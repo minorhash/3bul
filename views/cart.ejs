@@ -14,11 +14,16 @@
 </div>
 
 <div class="column is-two-quarter">
-<% include shop/cart %>
+    <% include shop/cart %><br>
+<% include shop/clr%>
 </div><!-- /col-->
 
 <div class="column is-one-quarter">
-<% include shop/clr%>
+    <% if(sar && sum){ %>
+    <% include shop/sum%><br><br>
+<% include shop/pay%>
+<% } %>
+
 </div><!-- /col-->
 </div><!-- /row-->
 

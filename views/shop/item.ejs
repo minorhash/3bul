@@ -11,20 +11,7 @@
 <br>
 
 </div>
-<nav class="level is-mobile">
-<div class="level-left">
-<a class="level-item">
-<span class="icon is-small"><i class="fa fa-reply"></i></span>
-</a>
-<a class="level-item">
-<span class="icon is-small"><i class="fa fa-retweet"></i></span>
-</a>
-<a class="level-item">
-<span class="icon is-small"><i class="fa fa-heart"></i></span>
-</a>
-</div>
-</nav>
-
+<% include ./lev%>
 <form method="post" action="/cart">
     <input type="hidden" name="name" value="<%= mer.name %>">
     <input type="hidden" name="sku" value="<%= mer.sku %>">
