@@ -14,7 +14,7 @@ rset=req.query.rset
 
 sess=req.session
     skua=[]
-if(sess){
+if(sess.sar){
 sar=sess.sar
     for (var i=0;i<sar.length;i++){
 skua.push(sar[i].sku)
