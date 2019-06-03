@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <% include par/head%>
 <% include par/nav%>
+
 <html>
 <body>
 
-<div class="section">
-<div class="columns">
-<div class="column is-one-quarter">
+<!-- menu -->
+<section class="section">
+	
+    <div class="columns">
+	
+	    <div class="column is-one-quarter">
+		<% include shop/cat %>
+		</div><!--/col-->
+	
+		<div class="column">
+		
+	        <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+			<ul>
+			<li><a href="/">top</a></li>
+			<li class="is-active"><a href="/" aria-current="page">
+			<% if(par=="art") { %>
+			artist
+			<% } else { %>
+			<%= par %>
+			<% } %>
+			</a></li>
+			</ul>
+			</nav>
+		
+		<% include shop/dra %>
+		
+		</div><!-- /col-->
+	</div><!-- /col-->
 
-<% include shop/bre%>
-<% include shop/cat %>
-</div>
-
-<div class="column">
-
-<% include shop/dra %>
-
-</div><!-- /col-->
-</div><!-- /row-->
-
-<div class="foot"><% include par/foot %></div>
-
-</section><!-- /container-fluid-->
+</section><!-- /section-->
 
 </body>
 </html>

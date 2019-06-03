@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html>
 <% include par/head%>
 <% include par/nav%>
+<html>
 <body>
+<!-- menu -->
 
 <!-- menu -->
 
-<section class="section">
 <div class="columns">
-<div class="column is-one-quarter ">
+<div class="column is-one-three">
 <% include shop/cat %>
-
 </div>
 
-<div class="column"> 
-<% include usr/sel%>
+<div class="column">
+<br>
 
-</div><!-- /col-->
-</div><!-- /cols-->
+<% if(par=="sign") { %>
+<% include usr/sign %>
 
-</section><!-- sec-->
+<% } else if(par=="in") { %>
+<% include usr/in %>
+
+<% } else if(par=="my") { %>
+<% include usr/my %>
+
+<% } else if(par=="fav") { %>
+<% include usr/fav %>
+
+<% } else if(par=="his") { %>
+<% include usr/his %>
+
+<% } else if(par=="up") { %>
+<% include usr/up %>
+
+
+
+<% } %>
+
+</div><!-- /col12-->
+</div><!-- /row-->
+
+
 
 </body>
-
-<div class="foot">
-<% include par/foot %>
-</div>
 </html>
 

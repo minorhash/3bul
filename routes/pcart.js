@@ -3,6 +3,7 @@ var router = express.Router();
 var db=require("cardb")
 var par,sku,skumer,pri,uni,rsku,rset
 var sess,ite,sob,sar=[],clr,skua,ind
+var sum,red
 
 var posSku=function(req, res, next) {
 sku=req.body.sku
@@ -30,6 +31,17 @@ sar=sess.sar=[]
 }
 next()}//pos sku
 
+var getSum=function(req, res, next) {
+if(sar){
+console.log("==sar")
+    sum=[]
+    for(var i=0;i<sar.length;i++){
+sum.push(sar[i].pri*sar[i].uni)
+    }
+red=sum.reduce(function(total, num){ return total + num });
+}else{console.log("==no sar")}
+next()}
+
 var chk=function(req, res, next) {
     console.log("==p cart")
     console.log(sku)
@@ -37,9 +49,9 @@ var chk=function(req, res, next) {
     next()}
 
 var cb=function(req, res ) {
-var obj={ par:par,sku:sku,mer:skumer,sar:sar}
+var obj={ par:par,sku:sku,mer:skumer,sar:sar,sum:red}
 res.render('cart',obj)
 }
 
-router.post('/cart',[posSku,chk,cb] );
+router.post('/cart',[posSku,getSum,chk,cb] );
 module.exports = router;
