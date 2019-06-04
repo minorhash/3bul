@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var db=require("cardb")
-var par,sku,x,skumer,allmer
+let par="",sku=0
+let skumer=null,allmer=null,mailusr=null
+let usr=null,sess=null
 
 var getPar=function(req, res, next) {
     par=req.params.id
@@ -11,25 +13,30 @@ var getAll=function(req, res, next) {
     allmer=db.allMer()
     next()}
 
+const getEma = (req, res, next)=> {
+if(req.session){
+sess=req.session
+}else{
+sess.usr=null
+console.log("no mailusr")}
+next()};
+
 var getSku=function(req, res, next) {
 sku=req.query.sku
 skumer=db.skuMer(sku)
-    x=req.query.x
     next()}
 
 var chk=function(req, res, next) {
     console.log(par)
     console.log(sku)
     console.log(skumer)
+    console.log(sess)
     next()}
 
 var cb=function(req, res ) {
-res.render('item',
-{ par:par,
-sku:sku,allmer:allmer,mer:skumer
-});
+var obj={ par:par,sku:sku,allmer:allmer,mer:skumer,usr:sess.usr}
+res.render('item',obj);
 }
-router.get('/item:id',[getAll,getPar,getSku,
-chk,cb] );
-
+var arr=[getPar,getEma,getAll,getSku,chk,cb]
+router.get('/item:id', arr);
 module.exports = router;

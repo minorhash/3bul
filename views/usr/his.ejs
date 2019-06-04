@@ -1,17 +1,30 @@
-his
+<% if(usr) { %>
+welcome <%= usr.name %><br>
+<% if(his) { %>
+<% for (var i=0;i<his.length;i++){ %>
+<%= his[i].pid %><br>
 
-<form action="/shop" method="post">
-E-mail:<br><input class="form-control" id="ema" type="email" name="email"  size="15">
+<% } %>
+<%} else {%>
+no arr
+<% } %>
+<%} else {%>
+<h1>ログイン</h1>
+
+<form action="/usr-log" method="post">
+E-mail:<br><input class="input" id="ema" type="email" name="email"  size="15">
+
 <br>
-Password:<br><input class="form-control" id="pss" type="text" name="pss" value="" size="15">
-<br>
-<button type="submit" class="btn btn-info">ログイン</button>
+Password:<br><input class="input" id="pss" type="text" name="pss" value="" size="15">
+<br><br>
+<button type="submit" class="button is-info">ログイン</button>
 </form>
 
 <br>
 アカウントをお持ちでない方<br><br>
 
-<form action="/shop/sig" method="get">
-<button type="submit" class="btn btn-danger">サイン イン</button>
+<form action="/usr-sign" method="get">
+<button type="submit" class="button is-danger">サインイン</button>
 </form>
 
+<%} %>

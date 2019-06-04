@@ -30,7 +30,7 @@ app.use(
 
 //app.use('/', shop);
 // i18n ======================================
-var nat=["","mail","shop","gis","usr"]
+var nat=["","mail","shop","gis","iusr"]
 
 for(let i=0;i<nat.length;i++){
 app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
@@ -39,7 +39,7 @@ app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
 }
 
 // route =================================
-var arr=["index","usr","item","info","cat","gcart","pcart","sum","pay"]
+var arr=["index","gusr","pusr","item","info","cat","gcart","pcart","sum","pay","aid","pal","pid"]
 arr.forEach(function(ite){
 ite=require('./routes/'+ite)
 app.use('/', ite)

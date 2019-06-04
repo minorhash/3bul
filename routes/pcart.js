@@ -1,16 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var db=require("cardb")
-var par,sku,skumer,pri,uni,rsku,rset
-var sess,ite,sob,sar=[],clr,skua,ind
-var sum,red
+let par=null,usr=null
+    let sku=0,uni=0
+let skumer=null,sess=null,ite=null
+   let sar=null,sst=null,skua=null
+let sum=null,red=0,email=null,etmp=null
 
+var getSes=function(req, res, next) {
+sess=req.session
+    if(sess.usr){
+usr=sess.usr
+email=usr.email
+name=usr.name
+}else{console.log("no usr")}
+
+next()}
 var posSku=function(req, res, next) {
 sku=req.body.sku
 uni=req.body.uni
 skumer=db.skuMer(sku)
 
-sess=req.session
 ite={sku:"",pri:"",uni:"",name:""}
 if(sku){
     ite.name=skumer.name
@@ -19,39 +29,44 @@ if(sku){
     ite.pri=skumer.pri
     console.log(ite)
 }else{console.log("no sku")}
-
 if(sess.sar){
 sar=sess.sar
 sar.push(ite)
-res.redirect("cart")
 
 }else{
 console.log("=== no sar")
-sar=sess.sar=[]
+sar=[]
+sar.push(ite)
+sess.sar=sar
 }
+res.redirect("cart")
 next()}//pos sku
 
 var getSum=function(req, res, next) {
+console.log("==get sum")
 if(sar){
-console.log("==sar")
     sum=[]
     for(var i=0;i<sar.length;i++){
 sum.push(sar[i].pri*sar[i].uni)
-    }
+}
+if(sum.length!==0){
 red=sum.reduce(function(total, num){ return total + num });
+}else{console.log("no sum")}
 }else{console.log("==no sar")}
-next()}
+next()}//get sum
 
 var chk=function(req, res, next) {
     console.log("==p cart")
     console.log(sku)
-    console.log(sess)
+    console.log(email)
+    console.log(etmp)
+    console.log(sst)
     next()}
 
-var cb=function(req, res ) {
-var obj={ par:par,sku:sku,mer:skumer,sar:sar,sum:red}
+var cb=function(req, res ,next) {
+var obj={ par:par,sku:sku,mer:skumer,sar:sar,sum:sum,usr:sess.usr}
 res.render('cart',obj)
-}
-
-router.post('/cart',[posSku,getSum,chk,cb] );
+    next()}//cb
+var arr=[getSes,posSku,getSum,chk,cb]
+router.post('/cart',arr );
 module.exports = router;

@@ -1,11 +1,54 @@
+<article class="media">
+<div class="media-left is-paddingless">
+    <div class="box">
+<%=iusr.name%><%= usr.name%><%=iusr.sama%><br>
+<% if(sar){ %>
+<br>
+<%= pub %><br>
+<% if(sum){ %>
+sum:
+<%= Math.round(sum) %><br> 
+tax:<%= Math.round(sum*.08) %><br> 
+tot:<%= Math.round(sum*1.08+650) %><br> 
+
+<% var tsum= Math.round(sum*1.08+650) %><br> 
+<% } else { %>no sum<% } %>
+
+<% for (let i=0;i<sar.length;i++){ %>
+<%=shop.tit%>:
+<%= sar[i].name%><br>
+<%=shop.sku%>:
+<%= sar[i].sku %><br>
+<%=shop.pri%>:
+<%= sar[i].pri%><br>
+<%=shop.unit%>:
+<%= sar[i].uni%><br>
+<% } %>
+<% } else { %>no sar<% } %>
+<br>
+<% if(adr){ %>
+<%=iusr.email %><%= adr.email%><br>
+<%= adr.phn%><br>
+<%= adr.ln1%><br>
+<%= adr.city%><br>
+<%= adr.sta%><br>
+<%= adr.zip%><br>
+<% } else { %>no adr<% } %>
+    </div>
+    </div>
+
+<div class="media-right has-background-ali">
 <p class="pa1">
 Paidy決済をご希望の方は下記ボタンを押してください。<br>
 Paidyのページが表示されますので、
-「お支払い手続きへ」をクリック後、
-Paidyのアカウントにてログインし、お手続きください。</p>
+「お支払い手続きへ」をクリック後、<br>
+Paidyのアカウントにてログインし、お手続きください。</p><br>
 
-<div align="right">
-<button id="paidy-checkout-button" onclick="paidyPay()">Paidyで決済する</button>
+<button class="button is-danger" id="paidy-checkout-button" onclick="paidyPay()">Paidy決済</button>
+    </div>
+
+</article>
+
 <script type="text/javascript" src="https://apps.paidy.com/"></script>
    <script type="text/javascript">
 
@@ -14,14 +57,12 @@ var config={
 "logo_url":"http://www.paidy.com/images/logo.png",
 "closed":function(cb){
 
-var loc= "http://localhost:3028";
+var loc= "http://localhost:3000";
 
 var xhr = new XMLHttpRequest();
-xhr.open("PUT", loc+"/shop/aid/pid", true);
+xhr.open("PUT", loc+"/pid", true);
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.send(JSON.stringify(cb));
-
-
 }
 };
 var paidyHandler=Paidy.configure(config);
@@ -29,11 +70,11 @@ function paidyPay(){
 var payload={
 "amount":<%= tsum %>,
 "currency":"JPY",
-"store_name":"axell store",
+"store_name":"tmstore",
 "buyer":{
-"email":"<%= email %>",
-"name1":"<%= usr %>",
-"phone":"<%= mailadr.phn %>"
+"email":"<%= adr.email %>",
+"name1":"<%= usr.name %>",
+"phone":"<%= adr.phn %>"
 },
 "buyer_data":{
 "user_id":"yamada_taro",
@@ -46,27 +87,27 @@ var payload={
 "order":{
 
 "items":[
-<% for(var i=0;i<ite.length;i++){ %>
+<% for(var i=0;i<sar.length;i++){ %>
 {
-"id":"<%= ite[i].id %>",
-"quantity":"<%= ite[i].quantity %>",
-"title":"<%= ite[i].title %>",
-"unit_price":"<%= ite[i].unit_price %>"
+"id":"<%= sar[i].id %>",
+"quantity":"<%= sar[i].uni%>",
+"title":"<%= sar[i].name%>",
+"unit_price":"<%= sar[i].pri%>"
        },
     <% } %>
 ],
 "order_ref":"88e021674",
-"shipping":<%= ship %>,
-"tax":<%= tax %>
+"shipping":650,
+"tax":<%= Math.round(sum*.08)%>
 },
 "shipping_address":{
-"line1":"<%= mailadr.ln1 %>",
-"line2":"<%= mailadr.ln2 %>",
-"city":"<%= mailadr.city %>",
-"state":"<%= mailadr.state%>",
-"zip":"<%= mailadr.zip%>"
+"line1":"<%= adr.ln1 %>",
+"line2":"<%= adr.ln2 %>",
+"city":"<%= adr.city %>",
+"state":"<%= adr.state%>",
+"zip":"<%= adr.zip%>"
 },
-"description":"axell store"
+"description":"tmstore"
 };
 paidyHandler.launch(payload);
 };

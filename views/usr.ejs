@@ -3,44 +3,23 @@
 <% include par/nav%>
 <html>
 <body>
-<!-- menu -->
 
-<!-- menu -->
-
+<section class="section">
 <div class="columns">
-<div class="column is-one-three">
+<div class="column is-one-quarter has-background-ali">
 <% include shop/cat %>
 </div>
 
-<div class="column">
+<div class="column is-two-quarters">
 <br>
-
-<% if(par=="sign") { %>
-<% include usr/sign %>
-
-<% } else if(par=="in") { %>
-<% include usr/in %>
-
-<% } else if(par=="my") { %>
-<% include usr/my %>
-
-<% } else if(par=="fav") { %>
-<% include usr/fav %>
-
-<% } else if(par=="his") { %>
-<% include usr/his %>
-
-<% } else if(par=="up") { %>
-<% include usr/up %>
-
-
-
-<% } %>
-
+<% include usr/sel%>
 </div><!-- /col12-->
+<div class="column ">
+<br>
+</div><!-- /col12-->
+
 </div><!-- /row-->
-
-
+</section>
 
 </body>
 </html>

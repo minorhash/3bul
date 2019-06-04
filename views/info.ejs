@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <% include par/head%>
 <% include par/nav%>
+
 <html>
 <body>
-<!-- menu -->
 
 <!-- menu -->
 
-<div class="container-fluid">
-<div class="row">
+<section class="section">
+	<div class="columns">
+		<div class="column is-one-quarter">
+		<% include shop/cat%>
+		</div><!--/col1/4-->
+	
+		<div class="column">
+		<% include usr/top %>
+		</div><!--/col3/4-->
+	
+    </div><!-- /col-->
 
-<div class="col-sm-12">
-<br>
 
-</div><!-- /col12-->
-</div><!-- /row-->
+</section>
 
-<div class="foot"><% include par/foot %></div>
-
-</div><!-- /container-fluid-->
+<% include par/foot %>
 
 </body>
+
+
 </html>
 
