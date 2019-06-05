@@ -5,6 +5,8 @@ welcome
     <input type="hidden" name="out" value="yes">
     <button class="button">log out</button>
 <%} else {%>
+<div class="columns">
+<div class="column">
 <h1>ログイン</h1>
 
 <form action="/usr-log" method="post">
@@ -22,5 +24,10 @@ Password:<br><input class="input" id="pss" type="text" name="pss" value="" size=
 <form action="/usr-sign" method="get">
 <button type="submit" class="button is-danger">サインイン</button>
 </form>
+</div>
 
+<div class="column">
+rite
+</div>
+</div>
 <%} %>

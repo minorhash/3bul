@@ -9,7 +9,7 @@ var sess=null
 
 var cnf=require("./son/aid.json")
 var sec=cnf.sec;
-var sec=cnf.skl;
+//var sec=cnf.skl;
 
 // === fun =============================
 var getEma = function(req, res, next) {
@@ -37,13 +37,13 @@ age
 .set("Paidy-Version", "2018-04-10")
 .set("Authorization", "Bearer"+sec)
 .then(res => {
+    console.log(res)
  adb.insPid(email,pid,res.body.amount,
  JSON.stringify(res.body.buyer),
  JSON.stringify(res.body.order.items),
  utc);
-})
-} else {
-console.log("no pid");  }
+})//res
+} else {console.log("no pid");  }
 next()};
 
 var senEma = function(req, res, next) {
