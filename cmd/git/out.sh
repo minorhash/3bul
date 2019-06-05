@@ -1,5 +1,5 @@
 if [ -z $1 ];then
-    echo "usage"
+    echo "$0 repo"
 else
 git checkout $1
 fi
