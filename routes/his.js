@@ -14,7 +14,7 @@ const getSes = (req, res, next)=> {
 next()};
 
 const getHis= (req, res, next)=> {
-    if(email){
+if(email){
 his=adb.allPid(email)
 }else{console.log("no email")}
 next()};

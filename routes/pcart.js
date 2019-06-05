@@ -2,17 +2,16 @@ var express = require('express');
 var router = express.Router();
 var db=require("cardb")
 let par=null,usr=null
-    let sku=0,uni=0
+    let sku=0,uni=0,red=0
 let skumer=null,sess=null,ite=null
-   let sar=null,sst=null,skua=null
-let sum=null,red=0,email=null,etmp=null
+   let sar=null,sst=null
+let sum=null,email=null,etmp=null
 
 var getSes=function(req, res, next) {
 sess=req.session
     if(sess.usr){
 usr=sess.usr
 email=usr.email
-name=usr.name
 }else{console.log("no usr")}
 
 next()}
@@ -64,7 +63,7 @@ var chk=function(req, res, next) {
     next()}
 
 var cb=function(req, res ,next) {
-var obj={ par:par,sku:sku,mer:skumer,sar:sar,sum:sum,usr:sess.usr}
+var obj={ par:par,sku:sku,mer:skumer,sar:sar,sum:red,usr:sess.usr}
 res.render('cart',obj)
     next()}//cb
 var arr=[getSes,posSku,getSum,chk,cb]

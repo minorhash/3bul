@@ -1,6 +1,9 @@
 <% if(usr) { %>
 welcome 
 <%= usr.name %>
+<form method="post" action="/usr-out">
+    <input type="hidden" name="out" value="yes">
+    <button class="button">log out</button>
 <%} else {%>
 <h1>ログイン</h1>
 

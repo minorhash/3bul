@@ -1,27 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var adb=require("usrdb")
-let par="",sku=0,skumer=null,pri=0,uni=0,rsku=0,rset=0
-let sess=null,ite=null,sob=null,sar=null,sst=null
+let par="",sku=0,skumer=null,rsku=0,rset=0
+let sess=null,sar=null
 let clr="no",skua=[],ind=0
-let sum=0,red=0,mailusr=null,usr=null
+let sum=0,red=0,usr=null
 let etmp=null
-
-var getPar=function(req, res, next) {
-    par=req.params.id
-    next()}
 
 var getSes=function(req, res, next) {
     if(req.session){
 sess=req.session
     if(sess){
 usr=sess.usr
-        email=usr.email
-        name=usr.name
 sar=sess.sar
 }else{console.log("=== no sess")}
-
-}else{console.log("=== no sess")}
+}else{console.log("=== no req")}
 next()}
 
 var upUni=function(req, res, next) {

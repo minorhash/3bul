@@ -7,8 +7,10 @@
 </figure>
 <div class="media-content">
 <div class="content">
-<strong><%=shop.tit %>:<%= mer.name %></strong> 
-<br>
+    <strong><%=shop.tit %>:<%= mer.name %></strong><br>
+<%=shop.sku%>:<%= mer.sku%><br>
+<% include ./fav%>
+
 
 </div>
 <% include ./lev%>

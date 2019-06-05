@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-let par=null,sum=null,red=null,email=null
+let par=null,sum=null,red=null,email=null,usr=null
 let sess=null,sar=null,adr=null
 const adb=require("usrdb")
 var cnf= require('./son/aid.json');

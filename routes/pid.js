@@ -1,15 +1,11 @@
 var express = require('express');
 var router = express.Router();
 // === db =============================
-var db = require('cardb');
 var adb = require('usrdb');
-
 var age=require("superagent")
-var snde = require('snd-ema');
-
 // === glob =============================
 var email=null, pid=null
-var mailusr=null,sess=null
+var sess=null
 
 var cnf=require("./son/aid.json")
 var sec=cnf.sec;
@@ -58,7 +54,7 @@ console.log('=== senEma =======================================');
     catch(err){console.log(err)}
 next()};
 
-var chk = function(req, res, next) {
+var chk = function() {
   console.log('=== PID =======================================');
   console.log(email);
   console.log(pid);

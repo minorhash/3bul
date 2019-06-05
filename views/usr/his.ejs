@@ -1,30 +1,46 @@
+<header class="has-text-centered">
+<button class="button">
+history
+</button>
+</header><br>
 <% if(usr) { %>
-welcome <%= usr.name %><br>
-<% if(his) { %>
-<% for (var i=0;i<his.length;i++){ %>
-<%= his[i].pid %><br>
+<div class="columns">
+
+<div class="column has-background-mis">
+<header class="has-text-centered">
+<button class="button is-danger">
+paidy
+</button>
+</header><br>
+
+<% if(pid) { %>
+<% for (var i=0;i<pid.length;i++){ %>
+<%= pid[i].pid %><br>
 
 <% } %>
 <%} else {%>
-no arr
+no paidy order
+<% } %>
+</div>
+
+<div class="column has-background-ali">
+<header class="has-text-centered">
+<button class="button is-info">
+paypal
+</button>
+</header><br>
+
+<% if(pal) { %>
+<% for (var i=0;i<pal.length;i++){ %>
+<%= pal[i].id%><br>
+
 <% } %>
 <%} else {%>
-<h1>ログイン</h1>
+no pal order
+<% } %>
 
-<form action="/usr-log" method="post">
-E-mail:<br><input class="input" id="ema" type="email" name="email"  size="15">
+</div>
 
-<br>
-Password:<br><input class="input" id="pss" type="text" name="pss" value="" size="15">
-<br><br>
-<button type="submit" class="button is-info">ログイン</button>
-</form>
-
-<br>
-アカウントをお持ちでない方<br><br>
-
-<form action="/usr-sign" method="get">
-<button type="submit" class="button is-danger">サインイン</button>
-</form>
-
+<%} else {%>
+<% include ./in%>
 <%} %>
