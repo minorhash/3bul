@@ -14,7 +14,7 @@ paypal.configure({
 });
 
 var tran=mypal.transactions[0]
-var    ite=null
+var ite=null
 
 var getSes=function(req, res, next) {
 if(req.session){

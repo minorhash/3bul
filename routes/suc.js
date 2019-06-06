@@ -74,21 +74,20 @@ res.redirect("cancel")
 item=    pay.transactions[0].item_list.items
 ist=    JSON.stringify(pay.transactions[0].item_list.items)
 
-    try{adb.insPal(email,pay.id,sum,ist,utc)}
-    catch(err){console.log(err)}
+try{adb.insPal(email,pay.id,sum,ist,utc)}
+catch(err){console.log(err)}
 console.log("=== suc===")
 console.log(email)
 console.log(pay)
 console.log(pay.id)
 console.log(item)
-
 }//else
-
-var obj={usr:usr,title:"buyer",pid: pid,payid:payid,pay:pay,item:item,sar:sar}
-res.render("success",obj )
 })
 }//exePal
 
-var arr=[getSes,getSum,getPid,exePal,chk]
+var cb= function(req, res) {
+var obj={usr:usr,title:"buyer",pid: pid,payid:payid,pay:pay,item:item,sar:sar}
+res.render("success",obj)}
+var arr=[getSes,getSum,getPid,exePal,chk,cb]
 router.get("/success", arr)
 module.exports = router
