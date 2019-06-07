@@ -5,16 +5,14 @@ var par=null,sess=null,sar=null
 var usr=null,sum=null,red=0,tax=0
 var pal = require("mypal")
 var mypal = pal.myPal()
-
 var cnf=require("./son/pal.json")
 paypal.configure({
   mode: cnf.sand,
   client_id:cnf.tid,
   client_secret:cnf.tsc
 });
-
 var tran=mypal.transactions[0]
-var ite=null
+var    ite=null
 
 var getSes=function(req, res, next) {
 if(req.session){
@@ -64,6 +62,8 @@ var chk=function(req, res, next) {
     console.log(red)
     console.log(tax)
     console.log(mypal)
+    console.log(mypal.transactions[0])
+    console.log(mypal.transactions[0].item_list)
     next()}
 
 var crPal = function(req, res) {
