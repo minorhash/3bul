@@ -39,7 +39,7 @@ app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
 }
 
 // route =================================
-var arr=["index","gusr","pusr","item","info","cat","gcart","pcart","sum","pay","aid","pal","pid"]
+var arr=["index","gusr","pusr","item","info","cat","gcart","pcart","pay","aid","pal","pid"]
 arr.forEach(function(ite){
 ite=require('./routes/'+ite)
 app.use('/', ite)
