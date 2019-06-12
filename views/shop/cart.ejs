@@ -1,3 +1,4 @@
+
 <% for(var i=0;i<sar.length;i++) { %>
 <article class="media">
 
@@ -12,15 +13,16 @@
 <div class="content">
     <strong><%=shop.tit %>:<%= sar[i].name %></strong> <br>
 <%=shop.sku %>:tms-<%= sar[i].sku%><br>
-<%=shop.pri %>:<%= sar[i].pri%>
+<%=shop.pri %>:<%= sar[i].pri.toLocaleString()%>
+<%=shop.yen %>
 <br>
 
 </div>
 
-<% include ./lev %>
 <% include ./uni%>
 
  </div>
 
 </article>
 <% } %><!-- for-->
+

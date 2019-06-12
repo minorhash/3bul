@@ -13,8 +13,8 @@ sess=req.session
 usr=sess.usr
 email=usr.email
 }else{console.log("no usr")}
-
 next()}
+
 var posSku=function(req, res, next) {
 sku=req.body.sku
 uni=req.body.uni
@@ -38,6 +38,12 @@ sar=[]
 sar.push(ite)
 sess.sar=sar
 }
+sst=JSON.stringify(sar)
+if(email){
+try{adb.inTmp(email,sst)}
+catch(err){console.log(err)}
+}
+
 res.redirect("cart")
 next()}//pos sku
 

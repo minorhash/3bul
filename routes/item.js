@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var db=require("cardb")
-let par="",sku=0
+var db= require("cardb")
+var adb=require("usrdb")
+let par=null,sku=0,fav=null
 let skumer=null,allmer=null,mailusr=null
 let usr=null,sess=null
 
@@ -16,6 +17,12 @@ var getAll=function(req, res, next) {
 const getEma = (req, res, next)=> {
 if(req.session){
 sess=req.session
+    if(sess){
+usr=sess.usr
+    if(usr){
+    email=usr.email
+    }//usr
+    }//sess
 }else{
 sess.usr=null
 console.log("no mailusr")}
@@ -27,10 +34,11 @@ skumer=db.skuMer(sku)
     next()}
 
 var chk=function(req, res, next) {
-    console.log(par)
+    console.log("=== item")
     console.log(sku)
     console.log(skumer)
     console.log(sess)
+    console.log(fav)
     next()}
 
 var cb=function(req, res ) {

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <% include par/head%>
+<%if(usr){%>
+<% include usr/nav%>
+<%}else{%>
+<% include par/nav%>
+<%}%>
+
 <body>
 <!-- menu -->
 
-<% include par/nav%>
 <!-- menu -->
 
 <div class="container-fluid">

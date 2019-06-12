@@ -5,13 +5,13 @@
 <html>
 <body>
 <section class="section">
-<div class="columns">
-		<div class="column is-one-quarter has-background-ali">
+<div class="row">
+		<div class="col is-one-quarter bkg-ali">
 		<% include shop/cat%>
 		</div><!-- col1 4-->
 
 <% if(sar!==null){ %>
-<div class="column is-two-quarters has-background-info"> 
+<div class="col is-two-quarters bkg-bei"> 
 
 <% include shop/cart %>
 <% include shop/clr%>
@@ -19,7 +19,7 @@
 </div><!-- col3 4-->
 
 <% if(sum!==0){ %>
-<div class="column is-one-quarter has-background-primary" style="">
+<div class="col is-one-quarter bkg-ali">
 
     <% include shop/sum %>
     <% include shop/pay%>
@@ -28,12 +28,7 @@
 <% }  %>
 
 <% } else { %>&nbsp;
-
-<div class="column is-three-quarter has-background-tom ">
-    <p class="button is-info"><%=shop.noit %></p><br>
-sss
-</div>
-
+<p class="button is-info"><%=shop.noit %></p>
 <% }  %>
 
 </div><!-- row--> 

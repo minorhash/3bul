@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <% include par/head%>
+
+<%if(usr){%>
+<% include usr/nav%>
+<%}else{%>
 <% include par/nav%>
+<%}%>
+
 <html>
 <body>
 
 <section class="section">
-<div class="columns">
-<div class="column is-one-quarter has-background-ali">
-<% include shop/cat %>
-</div>
+<div class="row">
 
-<div class="column is-three-quarters has-background-bei">
-<br>
+<div class="col is-one-quarter bkg-ali">
+<% include shop/cat %>
+</div><!-- /col1-->
+
+<div class="col is-three-quarters bkg-bei">
 <% include usr/sel%>
-</div><!-- /col12-->
-<div class="column ">
-<br>
-</div><!-- /col12-->
+</div><!-- /col2-->
 
 </div><!-- /row-->
 </section>

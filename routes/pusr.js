@@ -15,6 +15,10 @@ next()};
 const getUsr = function(req, res, next) {
 if (sess.usr) {
 usr = sess.usr.name;
+    if(usr){
+email=usr.email
+    }
+
 } else {
 usr = null;
 console.log("no usr");

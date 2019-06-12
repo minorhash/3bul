@@ -1,0 +1,17 @@
+<% if(pid) { %>
+<%= pid.length%><br>
+<% for (var i=0;i<pid.length;i++) { %>
+<p class="label"><%= pid[i].pid %></p>
+
+<% ite= JSON.parse(pid[i].ite) %>
+<% for( var k=0;k< ite.length;k++){ %>
+<%=shop.tit%>:
+<%= ite[k].title%><br>
+<%=shop.sku%>:tms-<%= ite[k].id%><br>
+<%= ite[k].unit_price.toLocaleString()%><br>
+<%= ite[k].quantity%><br>
+<%= ite[k].description%><br>
+<% } %><!-- for-->
+<% } %><!-- for-->
+<%} else {%> no pid <% } %>
+

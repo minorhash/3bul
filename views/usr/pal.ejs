@@ -1,0 +1,19 @@
+<% if(pal) { %>
+<%= pal.length%><br>
+<% for (var i=0;i<pal.length;i++) { %>
+<p class="label"><%= pal[i].id %></p>
+<% var ipal=JSON.parse(pal[i].ite) %>
+<% for( var k=0;k< ipal.length;k++){ %>
+<%=shop.tit%>:
+<%= ipal[k].name%><br>
+<%=shop.sku%>:tms-<%= ipal[k].sku%><br>
+<%=shop.pri%>
+<%= Number(ipal[k].price).toLocaleString()%>
+<%=shop.yen%>
+<br>
+<%=shop.unit%>:<%= ipal[k].quantity%><br>
+<%= ipal[k].description%><br>
+<% } %><!-- for-->
+<% } %><!-- for-->
+<%} else {%> no pal <% } %>
+

@@ -57,12 +57,6 @@ transactions: [{amount: {currency: "JPY",total: sum,details:det}}],
 }
 next()}
 
-var chk= function(req, res, next) {
-    console.log("=== suc ===")
-    console.log(email)
-    console.log(usr)
-    next()}
-
 var exePal= function(req, res) {
 var utc = new Date().toJSON().slice(0,10)
 
@@ -83,14 +77,27 @@ console.log(pay.id)
 console.log(item)
 
 }//else
-
-})
+})//exec
 }//exePal
 
-var cb= function(req, res) {
-var obj={usr:usr,title:"buyer",pid: pid,payid:payid,pay:pay,item:item,sar:sar}
-res.render("success",obj )}
+var senEma = function(req, res, next) {
+console.log('=== senEma =======================================');
+    var ua=req.acceptsLanguages("en")
+    var mail=require("./js/mpal.js");
+    try{mail(email,pal,ua)}
+    catch(err){console.log(err)}
+next()};
 
-var arr=[getSes,getSum,getPid,exePal,chk,cb]
+var chk= function(req, res, next) {
+    console.log("=== suc ===")
+    console.log(email)
+    console.log(usr)
+    next()}
+
+var cb= function(req, res, next) {
+var obj={usr:usr,title:"buyer",pid: pid,payid:payid,item:item,sar:sar}
+res.render("success",obj)}
+
+var arr=[getSes,getSum,getPid,exePal,senEma,chk,cb]
 router.get("/success", arr)
 module.exports = router

@@ -5,7 +5,7 @@ let sess=null,sar=null,adr=null
 const adb=require("usrdb")
 var cnf= require('./son/aid.json');
 var pub=cnf.pub;
-//var pub=cnf.pkl;
+var pub=cnf.pkl;
 var getSku=function(req, res, next) {
 if(req.session){
 sess=req.session
@@ -25,7 +25,7 @@ if(sar){
     sum=[]
     for(var i=0;i<sar.length;i++){
 sum.push(sar[i].pri*sar[i].uni)
-    }
+}
 if(sum.length!==0){
 red=sum.reduce(function(total, num){ return total + num });
 }else{console.log("no sum")}

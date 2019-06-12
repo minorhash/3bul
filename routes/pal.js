@@ -76,8 +76,7 @@ var crPal = function(req, res) {
             console.log(err.response.details)
             throw err.message
        res.redirect("cancel")
-        }
-        else {
+        }else {
             console.log(pay.links[1].href)
             console.log(pay)
             res.redirect(pay.links[1].href)

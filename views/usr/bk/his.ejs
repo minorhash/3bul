@@ -1,0 +1,26 @@
+<% if(usr!===null) { %>
+<header class="has-text-centered has-background-ali">
+    welcome <%= usr.name %></header><br>
+<div class="columns">
+<div class="column">
+<% if(pid) { %>
+<% for (var i=0;i<pid.length;i++){ %>
+<%= pid[i].pid %><br>
+
+
+<% } %><!-- for-->
+<%} else {%> no pid <% } %>
+</div>
+<div class="column has-background-info">
+<% if(pal) { %>
+<% for (var i=0;i<pal.length;i++){ %>
+<%= pal[i].id%><br>
+<% } %><!-- for-->
+
+<%} else {%> no pal <% } %>
+</div>
+</div>
+
+<%} else {%>
+<% include ./in%>
+<%} %>

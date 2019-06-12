@@ -1,8 +1,5 @@
-<header class="has-text-centered">
-<p class="button is-info ">paypal</p><br>
-</header>
 
-<br>
+<p class="button is-info">paypal</p>
 
 <% if(sar) { %>
 
@@ -16,17 +13,16 @@
 </p>
 </figure>
 
-<div class="media-content has-background-lg p-10">
-<strong><%=shop.tit %>:<%= sar[i].name %></strong> <br>
-<%=shop.sku%>:<%= sar[i].sku %><br>
-<%=shop.pri%>:<%= sar[i].pri %><br>
+<div class="media-content">
+<div class="content">
+<strong><%=shop.tit %>:<%= sar[i].name %></strong> 
+<br>
 
 </div>
 
-<div class="media-content has-background-ali p-10 has-text-centered ">
-    <p class="has-text-centered button">    sum</p>
 
-  </div>
+ </div>
+  <div class="media-content"> 
 </article>
 <% } %><!-- for-->
 <% } else {%> <%=shop.noit %><% } %>

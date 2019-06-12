@@ -9,7 +9,7 @@ var sess=null
 
 var cnf=require("./son/aid.json")
 var sec=cnf.sec;
-//var sec=cnf.skl;
+var sec=cnf.skl;
 
 // === fun =============================
 var getEma = function(req, res, next) {

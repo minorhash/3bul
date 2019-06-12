@@ -1,19 +1,23 @@
-﻿<nav class="navbar " role="navigation" aria-label="main navigation">
+﻿<div id="base" class="navbar-menu bkg-black">
+	<div class="navbar-start">
+        <p class="navbar-brand p-10 has-t-white"><%=shop.nam%></p> 
+    </div>
+	<div class="navbar-end">
+		<div class="navbar-item ">
+		
+<a class="button is-black" href="/usr-in">Log in&nbsp;
+<img src="img/login.png" alt="login/icon"></a>
+<a class="button is-small is-white" href="/usr-sign">新規会員登録</a>&nbsp;&nbsp;
+			<a class="button is-black" href="/cart">Cart&nbsp;
+			<img src="img/cart.png" alt="cart/icon"></a>
 
-<div class="navbar-brand">
-<a class="navbar-item" href="/">
-tmStore
-</a>
+			<a class="button is-black" href="/usr-sea">Search&nbsp;
+<img src="img/search.png" alt="search/icon"></a>
+			<a class="button is-black" href="/usr-info">Info&nbsp;
+			<img src="img/info.png" alt="info/icon"></a>
 
-<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="base">
-	      <span aria-hidden="true"></span>
-	      <span aria-hidden="true"></span>
-	      <span aria-hidden="true"></span>
-	</a>
+		</div><!--navitem -->
+	</div><!--/navend-->
+</div><!--/navmenu -->
 
-</div><!--/navbar-->
-
-<% include ./sel%>
-
-</nav>
 

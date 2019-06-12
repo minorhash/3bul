@@ -1,26 +1,36 @@
 var express = require('express');
 var router = express.Router();
-let par="",sku=0,skumer=null,rsku=0,rset=0
+let par=null,sku=0,skumer=null,rsku=0,rset=0
 let sess=null,sar=null
 let clr="no",skua=[],ind=0
 let sum=0,red=0,usr=null
-let etmp=null
+let etmp=null,email=null
 
 var getSes=function(req, res, next) {
     if(req.session){
 sess=req.session
     if(sess){
 usr=sess.usr
+if(usr){
+email=usr.email
+}
 sar=sess.sar
 }else{console.log("=== no sess")}
 }else{console.log("=== no req")}
+next()}
+
+var getSku=function(req, res, next) {
+    if(req.query){
+        sku=req.query.sku
+    }
+
 next()}
 
 var upUni=function(req, res, next) {
 rsku=req.query.rsku
 rset=req.query.rset
 
-    skua=[]
+skua=[]
 if(sess){
 sar=sess.sar
 if(sar){
@@ -67,7 +77,6 @@ red=0
 }else{
    clr="no"
     console.log("no query")}
-//res.redirect("back")
 
 next()}//clr ses
 
@@ -75,7 +84,6 @@ var chk=function(req, res, next) {
     console.log("== get cart")
     console.log(red)
     console.log(sess)
-    console.log(sar)
     console.log(etmp)
     next()}
 

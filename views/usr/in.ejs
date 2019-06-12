@@ -1,37 +1,25 @@
-<% if(usr) { %>
-<p class="has-text-centered">
-<button class="button">
-welcome <%= usr.name %>
-</button>
-</p><br>
+<div class="row">
+	<div class="col is-one-third">
+		<h1 style="font-size:2em;">ログイン</h1>
+	    <br>
 
-<form method="post" action="/usr-out">
-    <input type="hidden" name="out" value="yes">
-    <button class="button">log out</button>
-<%} else {%>
-<div class="columns">
-<div class="column">
-<h1>ログイン</h1>
+	<form action="/usr-log" method="post">
+	<label class="label">Email</label>
+	          <input class="input is-black" type="text" placeholder="Email input" name="email">
+<span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
+	         <label class="label">Password</label>
+	          <input class="input is-black" type="text" placeholder="password" name="pss">
+<span class="icon is-small is-left"><i class="fa fa-key"></i></span><br>
+          <button class="button is-warning">Login</button>
+	</form>
+	</div><!--/col third -->	
 
-<form action="/usr-log" method="post">
-E-mail:<br><input class="input" id="ema" type="email" name="email"  size="15">
+	<div class="col is-two-third">
+        <label class="label">アカウントをお持ちでない方</label>
+	<form action="/usr-sig" method="get">
+	<button type="submit" class="button">サインイン</button>
+	</form>
+	</div> <!--col third-->
+</div> <!--/cols-->
 
-<br>
-Password:<br><input class="input" id="pss" type="text" name="pss" value="" size="15">
-<br><br>
-<button type="submit" class="button is-info">ログイン</button>
-</form>
 
-<br>
-アカウントをお持ちでない方<br><br>
-
-<form action="/usr-sign" method="get">
-<button type="submit" class="button is-danger">サインイン</button>
-</form>
-</div>
-
-<div class="column">
-rite
-</div>
-</div>
-<%} %>

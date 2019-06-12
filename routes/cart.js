@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db=require("cardb")
+var adb=require("usrdb")
 var par,sku,skumer,pri,uni,rsku,rset
 var sess,ite,sob,sar=[],clr,skua,ind
 
@@ -31,10 +32,6 @@ console.log("=== no sar")
 
 next()}
 
-var posRed=function(req, res, next) {
-res.redirect("cart")
-next()}
-
 var posSku=function(req, res, next) {
 sku=req.body.sku
 uni=req.body.uni
@@ -50,16 +47,15 @@ if(sku){
     console.log(ite)
 }else{console.log("no sku")}
 
-
 if(sess.sar){
 sar=sess.sar
 sar.push(ite)
-res.redirect("cart")
 
 }else{
 console.log("=== no sar")
 sar=sess.sar=[]
 }
+res.redirect("cart")
 
 next()}//pos sku
 
@@ -73,6 +69,16 @@ sar=""
 }
 next()}//clr ses
 
+var getUsr=function(req, res, next) {
+    if(sess){
+        usr=sess.usr
+        if(usr){
+usr.email
+        }
+    }
+next()}//clr ses
+
+
 var chk=function(req, res, next) {
     console.log("== cart")
     console.log(sku)
@@ -85,7 +91,7 @@ var cb=function(req, res ) {
 res.render('cart',
 { par:par,
 sku:sku,mer:skumer,
-sar:sar
+sar:sar,usr:sess.usr
 });
 }
 

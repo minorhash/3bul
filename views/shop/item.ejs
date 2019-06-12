@@ -7,14 +7,13 @@
 </figure>
 <div class="media-content">
 <div class="content">
-    <strong><%=shop.tit %>:<%= mer.name %></strong><br>
-<%=shop.sku%>:<%= mer.sku%><br>
-<% include ./fav%>
-
+<strong><%=shop.tit %>:<%= mer.name %></strong> 
+<br>
 
 </div>
 <% include ./lev%>
-<form method="post" action="/cart">
+<% include par/fav%>
+<form id="ite" method="post" action="/cart">
     <input type="hidden" name="name" value="<%= mer.name %>">
     <input type="hidden" name="sku" value="<%= mer.sku %>">
     <input type="hidden" name="pri" value="<%= mer.pri %>"><br>
@@ -26,3 +25,7 @@
   </article>
 
 <% } else {%> no sku <% } %>
+
+<script>
+$('form#ite').submit(false)
+</script>
