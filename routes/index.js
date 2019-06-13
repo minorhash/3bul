@@ -4,7 +4,7 @@ var db=require("cardb")
 var mer
 var sess
 
-const getEma = (req, res, next)=> {
+const getSes = (req, res, next)=> {
 if(req.session ){
 sess=req.session
 }else{console.log("no req")}
@@ -14,11 +14,16 @@ var getIte=function(req, res, next) {
     mer=db.allMer()
     next()}
 var chk=function(req, res, next) {
+    console.log(ses)
     next()}
 
 var cb=function(req, res ) {
+if(sess){
     var obj={ mer:mer,usr:sess.usr}
+}else{
+    var obj={ mer:mer,usr:"none"}
+}
     res.render('index',obj);}//cb
-var arr=[getEma,getIte,chk,cb];
+var arr=[getSes,getIte,chk,cb];
 router.get('/',arr)
 module.exports = router;

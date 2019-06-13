@@ -7,7 +7,7 @@ var age=require("superagent")
 var email=null, pid=null
 var sess=null
 
-var cnf=require("./son/aid.json")
+var cnf=require("../son/aid.json")
 var sec=cnf.sec;
 var sec=cnf.skl;
 

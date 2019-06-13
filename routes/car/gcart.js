@@ -84,7 +84,6 @@ var chk=function(req, res, next) {
     console.log("== get cart")
     console.log(red)
     console.log(sess)
-    console.log(etmp)
     next()}
 
 var cb=function(req, res ) {

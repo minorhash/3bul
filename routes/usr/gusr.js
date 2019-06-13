@@ -4,7 +4,7 @@ var db= require("cardb")
 var adb=require("usrdb")
 var par=null,email=null,usr=null,sku=null
 var sess=null,pid=null,pal=null
-var fav=null,mer=null,fst=null,fst2=null,niq=null
+var fav=null,mer=null,fst=null,fst2=null,fav3=null
 
 var getPar=function(req, res, next) {
     par=req.params.id
@@ -55,6 +55,7 @@ if(req.query){
     }
 fav3= [...new Set(fav2)]
 fst2=JSON.stringify(fav3)
+
 if(email){
 console.log(email)
 try{adb.setFav(fst2,email)}
@@ -62,7 +63,7 @@ catch(err){console.log(err)}
 }else{console.log("no email")}
 }
 
-}else{console.log("no fav")}
+}else{console.log("no fst")}
 next()}
 
 
@@ -73,12 +74,14 @@ console.log(fav3)
 console.log(fst2)
     }
     console.log(par)
+    console.log(usr)
     //if(pid){    console.log(pid[0])    }
     //if(pal){    console.log(pal[0])    }
     next()}
 
 var cb=function(req, res) {
 var obj={ par:par,usr:usr,pid:pid,pal:pal,niq:fav3}
+
 res.render('usr',obj);}
 
 var arr=[getPar,getEma,getPid,getPal,getFav,chk,cb]

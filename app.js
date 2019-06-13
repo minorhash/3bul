@@ -30,7 +30,7 @@ app.use(
 
 //app.use('/', shop);
 // i18n ======================================
-var nat=["","mail","shop","gis","iusr"]
+var nat=["mail","shop","gis","iusr"]
 
 for(let i=0;i<nat.length;i++){
 app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
@@ -39,9 +39,28 @@ app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
 }
 
 // route =================================
-var arr=["index","gusr","pusr","item","info","cat","gcart","pcart","pay","aid","pal","pid"]
+var arr=["index",
+"item","info","cat"]
 arr.forEach(function(ite){
 ite=require('./routes/'+ite)
+app.use('/', ite)
+})
+
+var Uarr=["gusr","pusr","gfav","his"]
+Uarr.forEach(function(ite){
+ite=require('./routes/usr/'+ite)
+app.use('/', ite)
+})
+
+var Carr=["gcart","pcart"]
+Carr.forEach(function(ite){
+ite=require('./routes/car/'+ite)
+app.use('/', ite)
+})
+
+var Parr=["aid","pal","pid","suc","can"]
+Parr.forEach(function(ite){
+ite=require('./routes/pay/'+ite)
 app.use('/', ite)
 })
 
@@ -62,6 +81,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
 module.exports = app;

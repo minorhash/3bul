@@ -8,7 +8,7 @@ var sess=null,sar=null,usr=null,email=null
 var pid=null,payid=null,exeJson=null
 var red=0,sum=0,suma=null,item=null,ist=null
 
-var cnf=require("./son/pal.json")
+var cnf=require("../son/pal.json")
 paypal.configure({
 mode: cnf.sand,
 client_id:cnf.tid,

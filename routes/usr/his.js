@@ -3,7 +3,7 @@ var router = express.Router();
 var adb=require("usrdb")
 let par="",email="",usr=null
 let mailusr=null,sess=null,his=null
-var cred=require("./js/cred.js")
+var cred=require("../js/cred.js")
 
 const getSes = (req, res, next)=> {
     if(req.session){

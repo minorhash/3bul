@@ -1,23 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var adb=require("usrdb")
-var par,email,usr
+var par,email,usr,pss
 var mailusr,sess
-var cred=require("./js/cred.js")
 
 const getEma = (req, res, next)=> {
-email = cred.ema(req);
+if(req.body){
+email =req.body.email
 mailusr = adb.mailUsr(email);
+    if(mailusr){
+if(req.body.pss==mailusr.pss){
     sess=req.session
     sess.usr=mailusr
+}//if
+}
+}else{console.log("no post")}
+    //req body
 next()};
 
 const getUsr = function(req, res, next) {
-if (sess.usr) {
-usr = sess.usr.name;
-    if(usr){
+if (sess) {
+usr = sess.usr;
+if(usr){
 email=usr.email
-    }
+pss=usr.pss
+}
 
 } else {
 usr = null;

@@ -5,7 +5,7 @@ var par=null,sess=null,sar=null
 var usr=null,sum=null,red=0,tax=0
 var pal = require("mypal")
 var mypal = pal.myPal()
-var cnf=require("./son/pal.json")
+var cnf=require("../son/pal.json")
 paypal.configure({
   mode: cnf.sand,
   client_id:cnf.tid,

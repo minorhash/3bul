@@ -3,7 +3,7 @@ var router = express.Router();
 let par=null,sum=null,red=null,email=null,usr=null
 let sess=null,sar=null,adr=null
 const adb=require("usrdb")
-var cnf= require('./son/aid.json');
+var cnf= require('../son/aid.json');
 var pub=cnf.pub;
 var pub=cnf.pkl;
 var getSku=function(req, res, next) {
