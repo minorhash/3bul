@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<% include par/head%>
+<% include par/nav%>
+
+<body>
+
+<!-- menu -->
+
+<section class="section">
+<div class="row">
+<div class="col is-one-4 ">
+<% include shop/cat %>
+
+</div>
+
+<div class="col"> 
+<% if(usr){ %>
+
+<% if(sar){ %>
+<% for (var i=0;i<sar.length;i++){%>
+<p class="p-10 bkg-ali">
+<%=shop.tit%>:
+<%= sar[i].name%><br>
+<%=shop.sku%>:
+<%= sar[i].sku%><br>
+<%=shop.pri%>:
+<%= sar[i].pri.toLocaleString()%>&nbsp;<%=shop.yen%><br>
+<%=shop.unit%>:
+<%= sar[i].uni%></p><br>
+
+<% } %><!-- sar-->
+
+<% if(sar){ %>
+<script
+src="https://lite.checkout.rakuten.co.jp/s/js/checkout-lite-v1.js"
+data-key=<%= pub %>
+    class="checkout-lite-button"
+
+<% for (var i=0;i<sar.length;i++){%>
+data-item-id-<%= i+1 %>=<%= sar[i].sku%>
+    data-item-name-<%= i+1%>=<%= sar[i].name %>
+    data-item-unit-price-<%= i+1%>=<%= sar[i].pri%>
+data-item-quantity-<%= i+1%>=<%= sar[i].uni%>
+        <% }%>
+
+data-callback="cb"
+>
+
+</script>
+<% } %>
+<script>
+function cb(data){
+var loc= "http://localhost:3000";
+
+var xhr = new XMLHttpRequest();
+xhr.open("PUT", loc+"/rls", false);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(JSON.stringify(data));
+
+alert(data.id);		// 注文番号
+}
+</script>
+
+<% } %><!-- for-->
+
+
+<% include aid/rpy%>
+<% } else { %>
+<% include log/in%>
+<% } %>
+</div><!-- col-->
+
+<div class="col"></div><!-- col-->
+</div><!-- row-->
+
+</section><!-- sec-->
+
+</body>
+
+</html>
+

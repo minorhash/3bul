@@ -45,6 +45,6 @@ var chk=function(req, res, next) {
 
 var cb=function(req, res ) {
 var obj={par:par, sar:sar,usr:usr,pub:pub,sum:red,adr:adr}
-res.render('paidy',obj);}
-router.get('/paidy',[getSku,getSum,getAdr,chk,cb] );
+    res.render('pay/paidy',obj);}
+router.get('/pay/paidy',[getSku,getSum,getAdr,chk,cb] );
 module.exports = router;

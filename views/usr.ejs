@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <% include par/head%>
-
-<%if(usr){%>
-<% include usr/nav%>
-<%}else{%>
-<% include par/nav%>
-<%}%>
+<% if(usr){%>
+<% include par/inav%>
+<% }else{ %>
+<% include par/onav%>
+<% } %>
 
 <html>
 <body>
@@ -17,7 +16,7 @@
 <% include shop/cat %>
 </div><!-- /col1-->
 
-<div class="col is-3-4 bkg-bei">
+<div class="col is-three-4 bkg-bei">
 <% include usr/sel%>
 </div><!-- /col2-->
 

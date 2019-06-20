@@ -1,28 +1,26 @@
-﻿<div id="base" class="navbar-menu">
-	<div class="navbar-start"></div>
+﻿<div id="base" class="navbar-menu bkg-black">
+	<div class="navbar-start">
+        <div class="navbar-brand p-15 has-t-white"><%=shop.nam%></div>
+    </div>
 	<div class="navbar-end">
-		<div class="navbar-item">
+		<div class="navbar-item has-t-white">
 		
-            <% if(usr){ %>
-            <%= usr.name %><%=iusr.sama%>
+<% if(usr){ %><%= usr.name %> &nbsp;<%=iusr.sama%>
             <% } else { %>
 
             <% }  %>
-<a class="button is-black has-text-white" href="/usr-my">
-    my page
-</a>
-<a class="button is-black" href="/usr-fav">Favorite&nbsp;
+<a class="button is-black has-t-white" href="/mypage">my page</a>
+<a class="button is-black" href="/favorite">Favorite&nbsp;
 			<img src="img/heart.png" alt="heart/icon"></a>
-			<a class="button is-black" href="/usr-his">history&nbsp;
+			<a class="button is-black" href="/history">history&nbsp;
 			<img src="img/history.png" alt="history/icon"></a>
-
 
 			<a class="button is-black" href="/cart">Cart&nbsp;
 			<img src="img/cart.png" alt="cart/icon"></a>
 
-			<a class="button is-black" href="/usr-sea">Search&nbsp;
+			<a class="button is-black" href="/info-sea">Search&nbsp;
 <img src="img/search.png" alt="search/icon"></a>
-			<a class="button is-black" href="/usr-inf">Info&nbsp;
+			<a class="button is-black" href="/info-not">Info&nbsp;
 			<img src="img/info.png" alt="info/icon"></a>
 
 		</div><!--navitem -->

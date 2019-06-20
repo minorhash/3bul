@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <% include par/head%>
-<%if(usr){%>
-<% include usr/nav%>
-<%}else{%>
 <% include par/nav%>
-<%}%>
-
 
 <html>
 <body>
@@ -15,6 +10,9 @@
 		<% include shop/cat%>
 		</div><!-- col1 4-->
 
+<div class="col">
+
+<div class="row bkg-bei">
 <% if(sar!==null){ %>
 <div class="col is-two-4 bkg-bei"> 
 
@@ -22,19 +20,19 @@
 <% include shop/clr%>
 
 </div><!-- col3 4-->
-
+<% } else { %>&nbsp;<p class="button is-info"><%=shop.noit %></p>
+<% }  %>
 <% if(sum!==0){ %>
-<div class="col is-one-4 bkg-ali">
+<div class="col is-two-4 bkg-ali">
 
     <% include shop/sum %>
     <% include shop/pay%>
 
 </div><!-- col3 4-->
-<% }  %>
+<% }else{  %><% }  %>
 
-<% } else { %>&nbsp;
-<p class="button is-info"><%=shop.noit %></p>
-<% }  %>
+</div><!-- row--> 
+</div><!-- col--> 
 
 </div><!-- row--> 
 

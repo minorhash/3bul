@@ -1,0 +1,24 @@
+<% if(rid) { %>
+<% for (var i=0;i<rid.length;i++) { %>
+<p class="label"><%= rid[i].id %></p>
+<% var date=new Date(rid[i].cre*1000)%>
+<% var fdat=
+('0' + (date.getMonth() + 1)).slice(-2) + "-"+ 
+('0' + date.getDate()).slice(-2) + '-'+ 
+date.getFullYear() %>
+<%= fdat%><br>
+<% var irid=JSON.parse(rid[i].ite) %>
+<% for( var k=0;k< irid.length;k++){ %>
+<%=shop.tit%>:
+<%= irid[k].name%><br>
+<%=shop.sku%>:tms-<%= irid[k].id%><br>
+<%=shop.pri%>
+<%= Number(irid[k].unit_price).toLocaleString()%>
+<%=shop.yen%>
+<br>
+<%=shop.unit%>:<%= irid[k].quantity%><br>
+<%= irid[k].description%><br>
+<% } %><!-- for-->
+<% } %><!-- for-->
+<%} else {%> no rid <% } %>
+

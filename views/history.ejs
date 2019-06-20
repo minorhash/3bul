@@ -2,6 +2,7 @@
 <html>
 <% include par/head%>
 <% include par/nav%>
+
 <body>
 
 <!-- menu -->
@@ -13,14 +14,20 @@
 
 </div>
 
-<div class="col"> 
 <% if(usr){ %>
-<% include usr/his%>
-<% } else { %>
-<% include usr/in%>
-<% } %>
-</div><!-- /col-->
-</div><!-- /cols-->
+
+<div class="col" >
+<p class="p-10 has-t-cen bkg-bei">history</p><br>
+
+<% include his/row%>
+
+</div><!-- col-->
+</div><!-- col 1/4-->
+
+</div><!-- row-->
+
+
+<% } else { %><% include log/in%><% } %>
 
 </section><!-- sec-->
 

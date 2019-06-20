@@ -1,0 +1,35 @@
+<script>
+    var str="no"
+$(function(){
+$('#form').submit(function() {
+
+if ($.trim($("#pss").val()) === ""
+|| $.trim($("#name").val()) === ""
+|| $.trim($("#email").val()) === ""
+|| !$("#chk").is(':checked')
+) {
+alert(str);
+return false;}
+});
+});
+
+</script>
+
+<div class="button "><p class="has-t-cen">ユーザー登録（無料）</p></div>
+<br><br>
+<form action="/sign-fin" method="post" id="form">
+<label class="label">Name</label>
+<input class="input" type="text" id="name" class="input" name="name" ><br>
+
+<label class="label">Pass</label>
+<input class="input" type="text" id="pss" class="input" name="pss" ><br>
+
+<label class="label">Email</label>
+<input class="input" type="text" id="email" class="input" name="email" ><br>
+
+<div class="has-t-cen">登録する際は<a href="/info-agmt" target="_blank">利用規約</a>をお読みください。
+<input class="checkbox" type="checkbox" id="chk" name="chk"> 同意する<br>
+<br>
+<button type="submit" class="button is-danger">登録</button>
+</form>
+

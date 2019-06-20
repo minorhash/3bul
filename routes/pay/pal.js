@@ -74,7 +74,6 @@ var crPal = function(req, res) {
             console.log("=== err.response.name")
             console.log(err.response.name)
             console.log(err.response.details)
-            throw err.message
        res.redirect("cancel")
         }else {
             console.log(pay.links[1].href)
@@ -86,6 +85,6 @@ var crPal = function(req, res) {
 
 var cb=function(req, res ) {
 var obj={par:par, sar:sar,usr:usr}
-res.render('paypal',obj);}
-router.get('/paypal',[getSes,getSum,putIte,chk,crPal] );
+    res.render('pay/paypal',obj);}
+router.get('/pay/paypal',[getSes,getSum,putIte,chk,crPal] );
 module.exports = router;

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <% include par/head%>
-<% include par/nav%>
+<% if(usr){%>
+<% include par/inav%>
+<% }else{ %>
+<% include par/onav%>
+<% } %>
+
 <body>
 
 <!-- menu -->
@@ -15,7 +20,7 @@
 
 <div class="col"> 
 <% if(usr){ %>
-<% include pay/aid %>
+<% include aid/aid %>
 <% } else { %>
 <% include usr/in%>
 <% } %>

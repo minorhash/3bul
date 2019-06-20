@@ -1,18 +1,29 @@
+<p class="p-10 has-t-cen bkg-mis"><%=shop.fav%></p>
+
+<br>
 <% if(usr) { %>
-welcome 
-<%= usr.name%><%=shop.sama%>
+welcome &nbsp;<%= usr.name%> &nbsp;<%=iusr.san%><br>
 
-<% include par/out%>
 
-<% if( niq){ %>
-<% for(var i=0;i<niq.length;i++){%>
-<% if(niq[i]!=null && niq[i]!=undefined && niq[i]!=={}){%>
-<%=shop.sku%>:tms-<%= niq[i] %><br>
+<form method="post" action="log-out"><br>
+<button class="button" type="submit">log out</button>
+</form><br>
 
-<%} %><!-- if-->
+<% if(mer){ %>
+
+<div class="row">
+<% if(mer[0]!=undefined){ %>
+<% for (var i=0;i<mer.length;i++){%>
+<div class="col bkg-ali">
+    <img src="img/cd/png/<%= mer[i].sku%>.png"<br><br>
+<%= mer[i].name%><br>
+<%= mer[i].sku%><br>
+
+</div>
 <%} %><!-- for-->
-<%} else {%>no niq<%} %>
-
-<%} else {%>
-<% include ./in%>
+<%}else{ %><br><p class="p-10 bkg-ali">arr 0</p><%} %>
+</div>
+<%}else{ %><!-- if-->
+no mer
 <%} %>
+<%} else {%><% include ../log/in%><%} %>

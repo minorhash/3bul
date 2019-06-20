@@ -39,28 +39,40 @@ app.use(  i18n({    translationsPath: path.join(__dirname, 'i18n/'+nat[i]),
 }
 
 // route =================================
-var arr=["index",
-"item","info","cat"]
-arr.forEach(function(ite){
-ite=require('./routes/'+ite)
+
+var log=["in","out"]
+log.forEach(function(ite){
+    ite=require('./routes/log/'+ite)
 app.use('/', ite)
 })
 
-var Uarr=["gusr","pusr","gfav","his"]
+var sig=["up","fin"]
+sig.forEach(function(ite){
+ite=require('./routes/sig/'+ite)
+app.use('/', ite)
+})
+
+var Uarr=["fav","his","my","inf"]
 Uarr.forEach(function(ite){
 ite=require('./routes/usr/'+ite)
 app.use('/', ite)
 })
 
-var Carr=["gcart","pcart"]
+var Carr=["index","gcart","pcart","item","uni","cat"]
 Carr.forEach(function(ite){
 ite=require('./routes/car/'+ite)
 app.use('/', ite)
 })
 
-var Parr=["aid","pal","pid","suc","can"]
-Parr.forEach(function(ite){
-ite=require('./routes/pay/'+ite)
+var aid=["aid","pid","rpy","rls"]
+aid.forEach(function(ite){
+ite=require('./routes/aid/'+ite)
+app.use('/', ite)
+})
+
+var pal=["pal","suc","can"]
+pal.forEach(function(ite){
+ite=require('./routes/pal/'+ite)
 app.use('/', ite)
 })
 
@@ -69,7 +81,7 @@ res.status(404);
 
 res.format({
 html: function () {
-res.render('404', { url: req.url })
+    res.render('err/404', { url: req.url })
 }
 })
 });
@@ -79,6 +91,6 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
-  res.render('error');
+    res.render('err/error');
 });
 module.exports = app;
